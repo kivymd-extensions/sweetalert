@@ -4,7 +4,7 @@ Beautiful, responsive, customizable and accessible popup replacement.
 
 <p align="center">
   <a href="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif">
-    <img width="400" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif" title="Preview sweet alerts">
+    <img width="500" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif" title="Preview sweet alerts">
   </a>
 </p>
 
@@ -16,7 +16,7 @@ from kivy.lang import Builder
 from kivymd.app import MDApp
 
 KV = """
-#:import SweetAlert kivymd.components.sweet_alert.SweetAlert
+#:import SweetAlert kivymd.components.sweetalert.SweetAlert
 
 
 MDScreen:
@@ -39,7 +39,7 @@ Test().run()
 
 <p align="center">
   <a href="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert-example.png">
-    <img width="400" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert-example.png" title="Preview sweet alert example">
+    <img width="500" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert-example.png" title="Preview sweet alert example">
   </a>
 </p>
 
