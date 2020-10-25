@@ -19,9 +19,14 @@ from kivymd.uix.spinner import MDSpinner
 from kivymd.uix.textfield import MDTextFieldRect
 from kivymd.utils.fitimage import FitImage
 
-from animation.failure_icon import FailureAnimation
-from animation.others_icon import OthersAnimation
-from animation.success_icon import SuccessAnimation
+try:
+    from .animation.failure_icon import FailureAnimation
+    from .animation.others_icon import OthersAnimation
+    from .animation.success_icon import SuccessAnimation
+except ImportError:
+    from animation.failure_icon import FailureAnimation
+    from animation.others_icon import OthersAnimation
+    from animation.success_icon import SuccessAnimation
 
 Builder.load_string(
     """
