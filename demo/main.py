@@ -7,7 +7,7 @@ from kivy.uix.boxlayout import BoxLayout
 
 from kivymd.app import MDApp
 
-from sweet_alert import SweetAlert
+from sweetalert import SweetAlert
 
 KV = """
 # Do not delete this imports.
@@ -22,7 +22,7 @@ KV = """
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 #:import Clipboard kivy.core.clipboard.Clipboard
 #:import PythonLexer pygments.lexers.python.PythonLexer
-#:import SweetAlert sweet_alert.SweetAlert
+#:import SweetAlert sweetalert.SweetAlert
 #:import toast kivymd.toast.toast
 
 
