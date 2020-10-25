@@ -1,0 +1,173 @@
+{
+0:
+"""SweetAlert(window_control_buttons=['mac-style']).fire(
+    'Any fool can use a computer!'
+)""",
+
+1:
+"""SweetAlert().fire(
+    'Any fool can use a computer!',
+    type='success',
+)""",
+
+2:
+"""SweetAlert().fire(
+    'Any fool can use a computer!',
+    type='failure',
+)""",
+
+3:
+"""SweetAlert().fire(
+    'Any fool can use a computer!',
+    type='warning',
+)""",
+
+4:
+"""SweetAlert().fire(
+    'Any fool can use a computer!',
+    type='info',
+)""",
+
+5:
+"""SweetAlert().fire(
+    'That thing is still around?',
+    type='question',
+)""",
+
+6:
+"""SweetAlert().fire(
+    'The Internet?',
+    'That thing is still around?',
+    type='question',
+)""",
+
+7:
+"""SweetAlert().fire(
+    'The Internet?',
+    'That thing is still around?',
+    'Why do I have this issue?',
+    type='question',
+)""",
+
+8:
+"""OK = MDRectangleFlatIconButton(
+    text='OK',
+    icon='fingerprint',
+    text_color=(1, 1, 1, 1),
+    font_size=16,
+)
+OK.md_bg_color = self.theme_cls.primary_color
+OK.width = dp(100)
+
+CANCEL = MDRaisedButton(
+    text='CANCEL',
+    text_color=(1, 1, 1, 1),
+    font_size=16,
+)
+CANCEL.md_bg_color = (1, 0, 0, 1)
+
+SweetAlert().fire(
+    'The Internet?',
+    'That thing is still around?',
+    'Why do I have this issue?',
+    buttons=(CANCEL, OK),
+    type='question',
+)""",
+
+9:
+"""
+# A confirm dialog, with a function
+# attached to the "Confirm" button.
+
+def delete(instance):
+    alert.dismiss()
+    SweetAlert().fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        type='success',
+    )
+
+OK = MDRaisedButton(text='Yes, delete it!', font_size=16, on_release=delete)
+CANCEL = MDRaisedButton(text='Cancel', font_size=16)
+CANCEL.md_bg_color = get_color_from_hex('#dd3b34')
+
+alert = SweetAlert(window_control_buttons=['mac-style'])
+alert.fire(
+    'Are you sure?',
+    'You won"t be able to revert this!',
+    buttons=(OK, CANCEL),
+    type='warning',
+)
+""",
+
+10:
+"""
+# Custom position.
+
+SweetAlert(position="top-right").fire(
+    'Any fool can use a computer',
+)""",
+
+11:
+"""
+# Use image.
+
+SweetAlert().fire(
+    'Any fool can use a computer',
+    image='https://picsum.photos/600/400/?blur',
+)""",
+
+12:
+"""
+# Dialog closes automatically by timer.
+
+SweetAlert(timer=2).fire(
+    'Any fool can use a computer',
+)""",
+
+13:
+"""
+# Dynamic queue example.
+
+def wait_ip(interval):
+    if ip:
+        alert.dismiss()
+        SweetAlert(timer=2).fire(ast.literal_eval(ip).get("ip", "Unknown"))
+        Clock.unschedule(wait_ip)
+
+def get_public_ip(instance):
+    def _get_public_ip(interval):
+        def _get_ip():
+            global ip
+            ip = requests.get('https://api.ipify.org?format=json').text
+
+        alert.request = True
+        Clock.schedule_interval(wait_ip, 0)
+        threading.Thread(target=_get_ip, args=()).start()
+
+    Clock.schedule_once(_get_public_ip, 0.2)
+
+ip = ""
+alert = SweetAlert()
+alert.fire(
+    'Your public IP',
+    buttons=[
+        MDRaisedButton(
+            text='Show my public IP',
+            font_size=16,
+            on_release=get_public_ip,
+        )
+    ],
+)
+""",
+
+14:
+"""
+# Input.
+
+SweetAlert().fire(
+    'Submit your Github username',
+    input='text',
+)
+""",
+}
