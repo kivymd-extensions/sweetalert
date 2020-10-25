@@ -282,7 +282,10 @@ class SweetAlert(MDDialog):
     def add_buttons(self, buttons):
         if not buttons:
             button = MDRaisedButton(
-                text="OK", pos_hint={"center_x": 0.5}, font_size=self.font_size_button
+                text="OK",
+                pos_hint={"center_x": 0.5},
+                font_size=self.font_size_button,
+                on_release=lambda x: self.dismiss(),
             )
             button.md_bg_color = (
                 self.color_button if self.color_button else self.theme_cls.primary_color
