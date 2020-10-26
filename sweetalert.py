@@ -1,20 +1,63 @@
+"""
+API
+===
+
+Usage
+-----
+
+.. code-block:: python
+
+    from kivy.lang import Builder
+
+    from kivymd.app import MDApp
+
+    KV = '''
+    #:import SweetAlert kivymd.components.sweetalert.SweetAlert
+
+
+    MDScreen:
+
+        MDRaisedButton:
+            text: "EXAMPLE"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release: SweetAlert(window_control_buttons="mac-style").fire("Message!")
+    '''
+
+
+    class Test(MDApp):
+        def build(self):
+            return Builder.load_string(KV)
+
+
+    Test().run()
+
+.. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert-example.png
+    :align: center
+"""
+
 from kivy.animation import Animation
 from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.lang import Builder
 from kivy.metrics import dp
-from kivy.properties import OptionProperty, NumericProperty, ListProperty, \
-    BooleanProperty
+from kivy.properties import (
+    OptionProperty,
+    NumericProperty,
+    ListProperty,
+    BooleanProperty, ObjectProperty,
+)
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.widget import Widget
 from kivy.utils import get_color_from_hex
 
 from kivymd.font_definitions import theme_font_styles
+from kivymd.material_resources import DEVICE_TYPE
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDRaisedButton, MDIconButton
 from kivymd.uix.card import MDSeparator
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDLabel
+from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.spinner import MDSpinner
 from kivymd.uix.textfield import MDTextFieldRect
 from kivymd.utils.fitimage import FitImage
@@ -28,6 +71,8 @@ except ImportError:
     from animation.others_icon import OthersAnimation
     from animation.success_icon import SuccessAnimation
 
+__version__ = "0.1.2"
+
 Builder.load_string(
     """
 <CustomLabel>
@@ -39,16 +84,13 @@ Builder.load_string(
 )
 
 
-class CustomLabel(MDLabel):
-    """Base class for dialog labels."""
-
-
 class SweetAlert(MDDialog):
     animation_type = OptionProperty("pulse", options=("pulse"))
     """
-    Dialog title style.
+    Dialog appearance animation type. Available options are: `'pulse'`.
 
-    Available options are: `'pulse'`.
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-anim-pulse.gif
+        :align: center
 
     :attr:`animation_type` is an :class:`~kivy.properties.OptionProperty`
     and defaults to `'pulse'`.
@@ -58,6 +100,16 @@ class SweetAlert(MDDialog):
     """
     Dialog title style.
 
+    .. code-block:: python
+
+        SweetAlert(
+            window_control_buttons="mac-style",
+            font_style_title="H4",
+        ).fire("Title", "Message!")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-title-style.png
+        :align: center
+
     :attr:`font_style_title` is an :class:`~kivy.properties.OptionProperty`
     and defaults to attr:`~kivymd.font_definitions.theme_font_styles`
     """
@@ -65,6 +117,16 @@ class SweetAlert(MDDialog):
     font_style_text = OptionProperty("H6", options=theme_font_styles)
     """
     Dialog text style.
+
+    .. code-block:: python
+
+        SweetAlert(
+            window_control_buttons="mac-style",
+            font_style_text="H4",
+        ).fire("Title", "Message!")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-text-style.png
+        :align: center
 
     :attr:`font_style_text` is an :class:`~kivy.properties.OptionProperty`
     and defaults to attr:`~kivymd.font_definitions.theme_font_styles`
@@ -74,6 +136,16 @@ class SweetAlert(MDDialog):
     """
     Dialog footer style.
 
+    .. code-block:: python
+
+        SweetAlert(
+            window_control_buttons="mac-style",
+            font_style_footer="H4",
+        ).fire("Title", "Message!", "Footer")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-text-footer.png
+        :align: center
+
     :attr:`font_style_footer` is an :class:`~kivy.properties.OptionProperty`
     and defaults to attr:`~kivymd.font_definitions.theme_font_styles`
     """
@@ -81,6 +153,16 @@ class SweetAlert(MDDialog):
     font_size_button = NumericProperty("16sp")
     """
     Button font size.
+
+    .. code-block:: python
+
+        SweetAlert(
+            window_control_buttons="mac-style",
+            font_size_button="24sp",
+        ).fire("Message!")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-size-button.png
+        :align: center
 
     :attr:`font_size_button` is an :class:`~kivy.properties.NumericProperty`
     and defaults to `'16sp'`.
@@ -90,7 +172,17 @@ class SweetAlert(MDDialog):
     """
     Button color.
 
-    :attr:`color_button` is an :class:`~kivy.properties.NumericProperty`
+    .. code-block:: python
+
+        SweetAlert(
+            window_control_buttons="mac-style",
+            color_button=(1, 0, 1, 1),
+        ).fire("Message!")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-color-button.png
+        :align: center
+
+    :attr:`color_button` is an :class:`~kivy.properties.ListProperty`
     and defaults to `[]`.
     """
 
@@ -98,7 +190,17 @@ class SweetAlert(MDDialog):
     """
     Button text color.
 
-    :attr:`text_color_button` is an :class:`~kivy.properties.NumericProperty`
+    .. code-block:: python
+
+        SweetAlert(
+            window_control_buttons="mac-style",
+            text_color_button=(1, 0, 0, 1),
+        ).fire("Message!")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-text-color-button.png
+        :align: center
+
+    :attr:`text_color_button` is an :class:`~kivy.properties.ListProperty`
     and defaults to `[]`.
     """
 
@@ -107,13 +209,63 @@ class SweetAlert(MDDialog):
         options=("center", "top-left", "top-right", "bottom-left", "bottom-right"),
     )
     """
-    Dialog position.
-
-    Available options are: `'center'`, `'top-left'`, `'top-right'`,
+    Dialog position. Available options are: `'center'`, `'top-left'`, `'top-right'`,
     `'bottom-left'`, `'bottom-right'`.
+
+    .. code-block:: python
+
+        SweetAlert(
+            window_control_buttons="mac-style",
+            position="top-right",
+        ).fire("Message!")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-top-right.png
+        :align: center
 
     :attr:`position` is an :class:`~kivy.properties.OptionProperty`
     and defaults to `'center'`.
+    """
+
+    window_control_buttons = OptionProperty(None, options=["close", "mac-style"], allownone=True)
+    """
+    Type of buttons of window header.
+
+    .. code-block:: python
+
+        SweetAlert(window_control_buttons="mac-style").fire("Message!")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-window-control-buttons.png
+        :align: center
+
+    .. code-block:: python
+
+        SweetAlert(window_control_buttons="close").fire("Message!")
+
+    .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-close.png
+        :align: center
+
+    :attr:`window_control_buttons` is an :class:`~kivy.properties.OptionProperty`
+    and defaults to `None`.
+    """
+
+    window_control_callback = ObjectProperty()
+    """
+    Callback for buttons of window header.
+
+    .. code-block:: python
+
+        SweetAlert(
+            window_control_buttons="close",
+            window_control_callback=self.callback,
+        ).fire("Message!")
+
+    .. code-block:: python
+
+        def callback(self, instance_button):
+            print(instance_button)
+
+    :attr:`window_control_callback` is an :class:`~kivy.properties.ObjectProperty`
+    and defaults to `None`.
     """
 
     timer = NumericProperty(0)
@@ -126,8 +278,6 @@ class SweetAlert(MDDialog):
 
     request = BooleanProperty(False)
 
-    window_control_buttons = ListProperty()
-
     _timer = 0
 
     def __init__(self, **kwargs):
@@ -136,6 +286,7 @@ class SweetAlert(MDDialog):
             self.overlay_color = (0, 0, 0, 0)
         else:
             self.background_color = (0, 0, 0, 0)
+        # A box in which text, buttons and icons will be placed of window.
         self.content_cls = MDBoxLayout(
             adaptive_height=True,
             orientation="vertical",
@@ -151,76 +302,31 @@ class SweetAlert(MDDialog):
         self._scale_y = 0
         super().__init__(**kwargs)
 
+        # Creating and adding control buttons (close/collapse/expand)
+        # in the window header.
         if self.window_control_buttons:
-            button_box = RelativeLayout()
-            self.content_cls.add_widget(button_box)
-        for name_button in self.window_control_buttons:
-            if name_button == "close":
-                button_box.add_widget(
-                    MDIconButton(
-                        icon="close",
-                        y=dp(-24),
-                        x=self.width - (self.content_cls.padding[0] * 3) - dp(32),
+            button_box = MDRelativeLayout()
+            self.add_widget(button_box)
+            if self.window_control_buttons == "close":
+                button = MDIconButton(
+                    icon="close",
+                    pos_hint={"top": 1},
+                    x=self.width - self.content_cls.padding[0] - dp(32),
+                )
+                if self.window_control_callback:
+                    button.bind(on_release=self.window_control_callback)
+                button_box.add_widget(button)
+            elif self.window_control_buttons == "mac-style":
+                # Color and padding of buttons.
+                data = {"#eb5b53": 8, "#f5bc48": 28, "#64ca43": 48}
+                for color in data:
+                    button = MacOSWindowHeaderButton(
+                        text_color=get_color_from_hex(color),
+                        x=data[color],
                     )
-                )
-            if name_button == "mac-style":
-                button_box.add_widget(
-                    MDIconButton(
-                        user_font_size="14sp",
-                        y=self.content_cls.height - self.content_cls.padding[0] * 2,
-                        theme_text_color="Custom",
-                        text_color=get_color_from_hex("#eb5b53"),
-                        x=-self.content_cls.padding[0] * 2 + dp(4),
-                    )
-                )
-                button_box.add_widget(
-                    MDIconButton(
-                        user_font_size="14sp",
-                        y=self.content_cls.height - self.content_cls.padding[0] * 2,
-                        theme_text_color="Custom",
-                        text_color=get_color_from_hex("#f5bc48"),
-                        x=-self.content_cls.padding[0] * 2 + dp(4) + dp(14) * 1.5,
-                    )
-                )
-                button_box.add_widget(
-                    MDIconButton(
-                        user_font_size="14sp",
-                        y=self.content_cls.height - self.content_cls.padding[0] * 2,
-                        theme_text_color="Custom",
-                        text_color=get_color_from_hex("#64ca43"),
-                        x=-self.content_cls.padding[0] * 2 + dp(4) + dp(14) * 3,
-                    )
-                )
-
-    def on_request(self, instance, value):
-        for widget in self.content_cls.children:
-            if isinstance(widget, MDBoxLayout):
-                widget.clear_widgets()
-                self.content_cls.spacing = "12dp"
-                self.content_cls.add_widget(
-                    MDSpinner(
-                        size_hint=(None, None),
-                        size=("48dp", "48dp"),
-                        pos_hint={"center_x": 0.5},
-                    )
-                )
-                break
-
-    def _align_center(self, *l):
-        if self._window:
-            if self.position == "top-left":
-                self.pos = (10, Window.height - self.height - 10)
-            elif self.position == "top-right":
-                self.pos = (
-                    Window.width - self.width - 10,
-                    Window.height - self.height - 10,
-                )
-            elif self.position == "bottom-left":
-                self.pos = (10, 10)
-            elif self.position == "bottom-right":
-                self.pos = (Window.width - self.width - 10, 10)
-            else:
-                self.center = self._window.center
+                    if self.window_control_callback:
+                        button.bind(on_release=lambda x=button: self.window_control_callback(x))
+                    button_box.add_widget(button)
 
     def fire(
         self,
@@ -233,6 +339,175 @@ class SweetAlert(MDDialog):
         buttons=None,
         type="",
     ):
+        """
+        Arguments:
+        ----------
+
+        `title`
+
+        .. code-block:: python
+
+            SweetAlert().fire("Title")
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-title.png
+            :align: center
+
+        `text`
+
+        .. code-block:: python
+
+            SweetAlert().fire("Title", "Text)
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-title-text.png
+            :align: center
+
+        Or without title:
+
+        .. code-block:: python
+
+            SweetAlert().fire(text="Text)
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-text.png
+            :align: center
+
+        `footer`
+
+        .. code-block:: python
+
+            SweetAlert().fire(text="Message", footer="Footer text")
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-footer.png
+            :align: center
+
+        `image`
+
+        .. code-block:: python
+
+            SweetAlert().fire(text="Message", image="https://picsum.photos/600/400/?blur")
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-image.png
+            :align: center
+
+        `input`
+
+        .. code-block:: python
+
+            SweetAlert().fire(text="Message", input="Input Email")
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-input.png
+            :align: center
+
+        Or combine parameters:
+
+        .. code-block:: python
+
+            SweetAlert().fire(
+                text="Message",
+                image="https://picsum.photos/600/400/?blur",
+                input="Input Email",
+            )
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-combine.png
+            :align: center
+
+        `buttons`
+
+        .. code-block:: python
+
+            from kivy.lang import Builder
+
+            from kivymd.app import MDApp
+            from kivymd.uix.button import MDRaisedButton, MDFlatButton
+
+            from kivymd.components.sweetalert import SweetAlert
+
+            KV = '''
+            MDScreen:
+
+                MDRaisedButton:
+                    text: "EXAMPLE"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    on_release: app.show_dialog()
+            '''
+
+
+            class Test(MDApp):
+                def build(self):
+                    return Builder.load_string(KV)
+
+                def show_dialog(self):
+                    button_ok = MDRaisedButton(
+                        text='OK',
+                        font_size=16,
+                        on_release=self.callback,
+                    )
+                    button_cancel = MDFlatButton(
+                        text='CANCEL',
+                        font_size=16,
+                        on_release=self.callback,
+                    )
+                    self.alert = SweetAlert()
+                    self.alert.fire(
+                        'Your public IP', buttons=[button_ok, button_cancel],
+                    )
+
+                def callback(self, instance_button):
+                    print(self.alert, instance_button)
+
+
+            Test().run()
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-buttons.png
+            :align: center
+
+        `type`:
+
+        ``success``
+
+        .. code-block:: python
+
+            SweetAlert().fire('That thing is still around?', type='question')
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-success.png
+            :align: center
+
+        ``failure``
+
+        .. code-block:: python
+
+            SweetAlert().fire('That thing is still around?', type='failure')
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-failure.png
+            :align: center
+
+        ``warning``
+
+        .. code-block:: python
+
+            SweetAlert().fire('That thing is still around?', type='warning')
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-warning.png
+            :align: center
+
+        ``info``
+
+        .. code-block:: python
+
+            SweetAlert().fire('That thing is still around?', type='info')
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-info.png
+            :align: center
+
+        ``question``
+
+        .. code-block:: python
+
+            SweetAlert().fire('That thing is still around?', type='question')
+
+        .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-question.png
+            :align: center
+        """
+
         if not image:
             self.add_icon(type)
         else:
@@ -246,15 +521,55 @@ class SweetAlert(MDDialog):
             Clock.schedule_interval(self.check_timer, 1)
         Clock.schedule_once(self._open)
 
+    def update_width(self, *args):
+        """Updates window width."""
+
+        self.width = max(
+            self.height + dp(48),
+            min(
+                dp(560) if DEVICE_TYPE == "desktop" else dp(280),
+                Window.width - dp(48),
+            ),
+        )
+
+        # Updates button "close" position.
+        for widget in self.children:
+            if isinstance(widget, RelativeLayout):
+                if len(widget.children) == 1 and isinstance(
+                    widget.children[0], MDIconButton
+                ):
+                    if widget.children[0].icon == "close":
+                        widget.children[0].x = (
+                            self.width - self.content_cls.padding[0] - dp(32)
+                        )
+                        break
+
+    def on_request(self, instance, value):
+        """Adds a ``MDSpinner`` to the dialog."""
+
+        for widget in self.content_cls.children:
+            if isinstance(widget, MDBoxLayout):
+                widget.clear_widgets()
+                self.content_cls.spacing = "12dp"
+                self.content_cls.add_widget(
+                    MDSpinner(
+                        size_hint=(None, None),
+                        size=("48dp", "48dp"),
+                        pos_hint={"center_x": 0.5},
+                    )
+                )
+                break
+
     def add_input(self, input):
         if input:
-            self.content_cls.add_widget(
-                MDTextFieldRect(
-                    size_hint=(None, None),
-                    size=(self.width - dp(40), dp(30)),
-                    pos_hint={'center_y': .5, 'center_x': .5},
-                )
+            field = MDTextFieldRect(
+                size_hint=(None, None),
+                size=(self.width - dp(40), dp(30)),
+                pos_hint={"center_y": 0.5, "center_x": 0.5},
             )
+            if isinstance(input, str):
+                field.hint_text = input
+            self.content_cls.add_widget(field)
 
     def check_timer(self, timer, interval=1):
         self._timer += 1
@@ -264,6 +579,7 @@ class SweetAlert(MDDialog):
             self.dismiss()
 
     def add_image(self, image, height_image):
+        self.content_cls.padding[1] = 0
         self.content_cls.add_widget(
             FitImage(source=image, size_hint_y=None, height=height_image)
         )
@@ -355,3 +671,37 @@ class SweetAlert(MDDialog):
     def _open(self, interval):
         self.ids.container.height = self.content_cls.height
         self.open()
+
+    def _align_center(self, *l):
+        if self._window:
+            if self.position == "top-left":
+                self.pos = (10, Window.height - self.height - 10)
+            elif self.position == "top-right":
+                self.pos = (
+                    Window.width - self.width - 10,
+                    Window.height - self.height - 10,
+                )
+            elif self.position == "bottom-left":
+                self.pos = (10, 10)
+            elif self.position == "bottom-right":
+                self.pos = (Window.width - self.width - 10, 10)
+            else:
+                self.center = self._window.center
+
+
+class CustomLabel(MDLabel):
+    """Base class for dialog labels."""
+
+
+class MacOSWindowHeaderButton(MDIconButton):
+    """
+    The base class of buttons (close/collapse/expand) that will be placed
+    in the window header.
+    """
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.user_font_size = "14sp"
+        self.theme_text_color = "Custom"
+        self.pos_hint = {"top": 1}
+        self.ripple_scale = 0.7
