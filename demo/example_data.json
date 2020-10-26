@@ -1,6 +1,6 @@
 {
 0:
-"""SweetAlert(window_control_buttons=['mac-style']).fire(
+"""SweetAlert(window_control_buttons='mac-style').fire(
     'Any fool can use a computer!'
 )""",
 
@@ -91,7 +91,7 @@ OK = MDRaisedButton(text='Yes, delete it!', font_size=16, on_release=delete)
 CANCEL = MDRaisedButton(text='Cancel', font_size=16)
 CANCEL.md_bg_color = get_color_from_hex('#dd3b34')
 
-alert = SweetAlert(window_control_buttons=['mac-style'])
+alert = SweetAlert(window_control_buttons='mac-style')
 alert.fire(
     'Are you sure?',
     'You won"t be able to revert this!',
