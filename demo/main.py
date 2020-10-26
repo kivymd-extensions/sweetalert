@@ -7,8 +7,6 @@ from kivy.uix.boxlayout import BoxLayout
 
 from kivymd.app import MDApp
 
-from sweetalert import SweetAlert
-
 KV = """
 # Do not delete this imports.
 # These imports are needed to execute the command `exec(root.example_text)`
@@ -60,9 +58,6 @@ ScrollView:
         id: box
         padding: "4dp"
         spacing: "4dp"
-        
-        #MDFlatButton:
-        #    on_release: app.show_confirmation_dialog2()
 """
 
 
@@ -97,11 +92,6 @@ class Example(MDApp):
                     height=height,
                 )
             )
-
-    def show_confirmation_dialog2(self):
-        SweetAlert(window_control_buttons=["mac-style"]).fire(
-            'Submit your Github username',
-        )
 
 
 Example().run()
