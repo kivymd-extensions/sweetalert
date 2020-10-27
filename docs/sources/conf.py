@@ -47,6 +47,12 @@ extensions = [
 ]
 
 # AutoAPI configuration
+print("=====================================================================\n")
+print(realpath("../sweetalert"))
+print(realpath("../../sweetalert"))
+print(realpath("../../../sweetalert"))
+print(realpath("../../../../sweetalert"))
+print("\n=====================================================================")
 autoapi_dirs = ["../../../sweetalert"] if realpath("../../../sweetalert") else ["../../../../sweetalert"]
 autoapi_template_dir = os.path.abspath("_templates")
 autoapi_ignore = []
