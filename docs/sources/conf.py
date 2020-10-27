@@ -5,7 +5,6 @@
 import os
 import sys
 
-os.system("/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/envs/latest/bin/python -m pip install autoapi")
 sys.path.insert(0, os.path.abspath("_extensions"))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath("."))))
 
