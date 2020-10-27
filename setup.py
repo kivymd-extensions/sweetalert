@@ -6,11 +6,10 @@ if __name__ == "__main__":
             "docs":
                 [
                     "sphinx",
-                     "kivy",
+                    "kivy",
                     "kivymd",
                     "sphinx-autoapi",
                     "sphinx_rtd_theme",
-                    "enum",
                     "future",
                     "pygments",
                     "yaml",
