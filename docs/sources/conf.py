@@ -53,6 +53,9 @@ print(realpath("../../sweetalert"), os.path.exists(realpath("../../sweetalert"))
 print(realpath("../../../sweetalert"), os.path.exists(realpath("../../../sweetalert")))
 print(realpath("../../../../sweetalert"), os.path.exists(realpath("../../../../sweetalert")))
 print(realpath("../../../../../sweetalert"), os.path.exists(realpath("../../../../sweetalert")))
+
+print(dir(realpath("../../../../../sweetalert")))
+
 print("\n=====================================================================")
 autoapi_dirs = ["../../../sweetalert"] if os.path.exists(realpath("../../../sweetalert")) else ["../../../../../sweetalert"]
 print("=====================================================================\n")
@@ -67,7 +70,7 @@ autoapi_options = ["members", "undoc-members"]
 autoapi_root = "api"
 autoapi_add_toctree_entry = False
 autoapi_include_inheritance_graphs = False
-autoapi_include_summaries = True
+show_module_summary = True
 autoapi_python_class_content = "class"
 autoapi_python_use_implicit_namespaces = False
 autoapi_keep_files = False  # True for debugging
