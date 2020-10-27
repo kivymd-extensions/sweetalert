@@ -55,6 +55,8 @@ print(realpath("../../../../sweetalert"), os.path.exists(realpath("../../../../s
 print(realpath("../../../../../sweetalert"), os.path.exists(realpath("../../../../sweetalert")))
 
 print(os.listdir(realpath("../../../../../sweetalert")))
+print(os.listdir("/home/docs"))
+print(os.listdir("/home/docs/checkouts"))
 
 print("\n=====================================================================")
 autoapi_dirs = ["../../../sweetalert"] if os.path.exists(realpath("../../../sweetalert")) else ["../../../../../sweetalert"]
