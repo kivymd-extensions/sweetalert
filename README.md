@@ -45,11 +45,16 @@ Test().run()
 
 ### Installation
 
-`pip install kivymd-components`
+```bash
+pip install kivymd-components
+componemts install sweetalert
+```
 
-`componemts install sweetalert`
+### Documentation
 
-### Dependencies:
+[Sweet Alert Documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
+
+### Dependencies
 
 - [Kivy](https://github.com/kivy/kivy) >= 1.10.1 ([Installation](https://kivy.org/doc/stable/gettingstarted/installation.html))
 - [KivyMD](https://github.com/kivymd/KivyMD) >= 0.104.2 (`pip install https://github.com/kivymd/KivyMD/archive/master.zip
