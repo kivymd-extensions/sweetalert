@@ -51,7 +51,8 @@ extensions = [
 
 #autoapi_dirs = ["../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/docs/sweetalert` not found
 #autoapi_dirs = ["../../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/sweetalert` not found
-autoapi_dirs = ["../../../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/sweetalert` not found
+#autoapi_dirs = ["../../../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/sweetalert` not found
+autoapi_dirs = ["../../../../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/sweetalert` not found
 #autoapi_dirs = ["sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/docs/sources/sweetalert` not found
 autoapi_template_dir = os.path.abspath("_templates")
 autoapi_ignore = []
