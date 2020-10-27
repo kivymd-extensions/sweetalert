@@ -48,15 +48,12 @@ extensions = [
 
 # AutoAPI configuration
 print("=====================================================================\n")
-print(realpath("../sweetalert"), os.path.exists(realpath("../sweetalert")))
-print(realpath("../../sweetalert"), os.path.exists(realpath("../../sweetalert")))
-print(realpath("../../../sweetalert"), os.path.exists(realpath("../../../sweetalert")))
-print(realpath("../../../../sweetalert"), os.path.exists(realpath("../../../../sweetalert")))
-print(realpath("../../../../../sweetalert"), os.path.exists(realpath("../../../../sweetalert")))
 
 print(os.listdir(realpath("../../../../../sweetalert")))
 print(os.listdir("/home/docs"))
 print(os.listdir("/home/docs/checkouts"))
+print(os.listdir("readthedocs.org"))
+print(os.listdir("readthedocs.org/user_builds"))
 
 print("\n=====================================================================")
 autoapi_dirs = ["../../../sweetalert"] if os.path.exists(realpath("../../../sweetalert")) else ["../../../../../sweetalert"]
