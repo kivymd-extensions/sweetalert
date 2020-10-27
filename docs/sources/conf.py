@@ -49,7 +49,7 @@ extensions = [
 # AutoAPI configuration
 print("=====================================================================\n")
 
-print(os.listdir(realpath("../../../../../sweetalert/envs")))
+print(os.listdir(realpath("../../../../../sweetalert/envs/latest")))
 print(os.listdir(realpath("../../../../../sweetalert/checkouts")))
 
 
