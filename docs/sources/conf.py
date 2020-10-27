@@ -4,6 +4,7 @@
 # Path setup
 import os
 import sys
+from os.path import realpath
 
 sys.path.insert(0, os.path.abspath("_extensions"))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath("."))))
@@ -46,7 +47,7 @@ extensions = [
 ]
 
 # AutoAPI configuration
-autoapi_dirs = ["../../../../../sweetalert"]
+autoapi_dirs = ["../../../sweetalert"]
 autoapi_template_dir = os.path.abspath("_templates")
 autoapi_ignore = []
 autoapi_type = "python"
