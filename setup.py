@@ -3,7 +3,18 @@ if __name__ == "__main__":
 
     setup(
         extras_require={
-            "docs": ["sphinx", "kivy",  "kivymd", "sphinx-autoapi", "sphinx_rtd_theme"],
+            "docs":
+                [
+                    "sphinx",
+                     "kivy",
+                    "kivymd",
+                    "sphinx-autoapi",
+                    "sphinx_rtd_theme",
+                    "enum",
+                    "future",
+                    "pygments",
+                    "yaml",
+                ],
         },
         setup_requires=[],
         python_requires=">=3.6",
