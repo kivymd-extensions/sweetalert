@@ -57,7 +57,6 @@ from kivymd.uix.button import MDRaisedButton, MDIconButton
 from kivymd.uix.card import MDSeparator
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDLabel
-from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.spinner import MDSpinner
 from kivymd.uix.textfield import MDTextFieldRect
 from kivymd.utils.fitimage import FitImage
@@ -305,7 +304,7 @@ class SweetAlert(MDDialog):
         # Creating and adding control buttons (close/collapse/expand)
         # in the window header.
         if self.window_control_buttons:
-            button_box = MDRelativeLayout()
+            button_box = RelativeLayout()
             self.add_widget(button_box)
             if self.window_control_buttons == "close":
                 button = MDIconButton(
