@@ -47,17 +47,8 @@ extensions = [
 ]
 
 # AutoAPI configuration
-print("=====================================================================\n")
-
-print(os.listdir(realpath("../../../../../sweetalert/envs/latest")))
-print(os.listdir(realpath("../../../../../sweetalert/checkouts")))
-
-
-print("\n=====================================================================")
-autoapi_dirs = ["../../../sweetalert"] if os.path.exists(realpath("../../../sweetalert")) else ["../../../../../sweetalert"]
-print("=====================================================================\n")
-print(autoapi_dirs)
-print("\n=====================================================================")
+#autoapi_dirs = ["../../../sweetalert"] if os.path.exists(realpath("../../../sweetalert")) else ["../../../../../sweetalert"]
+autoapi_dirs = ["../sweetalert"]
 autoapi_template_dir = os.path.abspath("_templates")
 autoapi_ignore = []
 autoapi_type = "python"
