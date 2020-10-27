@@ -46,7 +46,7 @@ extensions = [
 ]
 
 # AutoAPI configuration
-autoapi_dirs = ["../../sweetalert"]
+autoapi_dirs = ["../sweetalert"]
 autoapi_template_dir = os.path.abspath("_templates")
 autoapi_ignore = []
 autoapi_type = "python"
