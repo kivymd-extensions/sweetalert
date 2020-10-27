@@ -1,8 +1,8 @@
 # Sweet Alert
 
 <p align="center">
-  <a href="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif">
-    <img width="600" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif" title="Preview sweet alerts">
+  <a href="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweetalert-logo.png">
+    <img width="256" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweetalert-logo.png" title="Preview sweet alert example">
   </a>
 </p>
 
