@@ -10,7 +10,6 @@ if __name__ == "__main__":
                     "kivymd",
                     "sphinx-autoapi",
                     "sphinx_rtd_theme",
-                    "future",
                     "pygments",
                 ],
         },
