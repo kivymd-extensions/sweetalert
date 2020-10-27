@@ -50,7 +50,7 @@ extensions = [
 print("=====================================================================\n")
 
 print(os.listdir(realpath("../../../../../sweetalert")))
-print(os.listdir("/home/docs"))
+print(os.listdir("/home/docs/envs"))
 print(os.listdir("/home/docs/checkouts"))
 print(os.listdir("readthedocs.org"))
 print(os.listdir("readthedocs.org/user_builds"))
