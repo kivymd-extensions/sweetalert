@@ -55,6 +55,9 @@ print(realpath("../../../../sweetalert"), os.path.exists(realpath("../../../../s
 print(realpath("../../../../../sweetalert"), os.path.exists(realpath("../../../../sweetalert")))
 print("\n=====================================================================")
 autoapi_dirs = ["../../../sweetalert"] if os.path.exists(realpath("../../../sweetalert")) else ["../../../../../sweetalert"]
+print("=====================================================================\n")
+print(autoapi_dirs)
+print("\n=====================================================================")
 autoapi_template_dir = os.path.abspath("_templates")
 autoapi_ignore = []
 autoapi_type = "python"
