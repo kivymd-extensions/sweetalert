@@ -1,12 +1,13 @@
 # Sweet Alert
 
-Beautiful, responsive, customizable and accessible popup replacement.
-
 <p align="center">
   <a href="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif">
     <img width="600" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif" title="Preview sweet alerts">
   </a>
 </p>
+
+Beautiful, responsive, customizable and accessible popup replacement.
+See SweetAlert [documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
 
 ### Usage
 
@@ -43,8 +44,6 @@ Test().run()
   </a>
 </p>
 
-[SweetAlert Documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
-
 ### Installation
 
 ```bash
@@ -58,6 +57,20 @@ componemts install sweetalert
 - [KivyMD](https://github.com/kivymd/KivyMD) >= 0.104.2 (`pip install https://github.com/kivymd/KivyMD/archive/master.zip
 `)
 - [Python 3.6+](https://www.python.org/) _(Python 2 not supported)_
+
+### Run demo
+
+```batch
+git clone git@github.com:kivymd-components/sweetalert.git
+cd sweetalert/demo
+python main.py
+```
+
+<p align="center">
+  <a href="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif">
+    <img width="600" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/preview-sweet-alert.gif" title="Preview sweet alerts">
+  </a>
+</p>
 
 ### Support
 
