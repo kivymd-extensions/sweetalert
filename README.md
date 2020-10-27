@@ -43,16 +43,14 @@ Test().run()
   </a>
 </p>
 
+[SweetAlert Documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
+
 ### Installation
 
 ```bash
 pip install kivymd-components
 componemts install sweetalert
 ```
-
-### Documentation
-
-[Sweet Alert Documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
 
 ### Dependencies
 
