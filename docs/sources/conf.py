@@ -1,6 +1,8 @@
 # Configuration file for the Sphinx documentation builder.
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+autodoc_mock_imports = ["autoapi"]
+
 # Path setup
 import os
 import sys
