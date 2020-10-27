@@ -50,7 +50,8 @@ extensions = [
 #autoapi_dirs = ["../../../sweetalert"] if os.path.exists(realpath("../../../sweetalert")) else ["../../../../../sweetalert"]
 
 #autoapi_dirs = ["../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/docs/sweetalert` not found
-autoapi_dirs = ["../../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/docs/sources/sweetalert` not found
+#autoapi_dirs = ["../../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/sweetalert` not found
+autoapi_dirs = ["../../../sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/sweetalert` not found
 #autoapi_dirs = ["sweetalert"]  # `/home/docs/checkouts/readthedocs.org/user_builds/sweetalert/checkouts/latest/docs/sources/sweetalert` not found
 autoapi_template_dir = os.path.abspath("_templates")
 autoapi_ignore = []
