@@ -1,6 +1,8 @@
 Welcome to Sweet Alert's documentation!
 =======================================
 
+.. autoapimodule:: sweetalert
+
 Beautiful, responsive, customizable and accessible popup replacement
 for `KivyMD <https://github.com/kivymd/KivyMD>`_ library.
 
