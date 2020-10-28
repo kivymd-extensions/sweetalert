@@ -1,10 +1,6 @@
 # Sweet Alert
 
-<p align="center">
-  <a href="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweetalert-logo.png">
-    <img width="256" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweetalert-logo.png" title="Preview sweet alert example">
-  </a>
-</p>
+<img align="left" width="128" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweetalert-logo.png"/>
 
 Beautiful, responsive, customizable and accessible popup replacement.
 See SweetAlert [documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
