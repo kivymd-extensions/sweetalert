@@ -50,6 +50,23 @@ pip install kivymd-components
 componemts install sweetalert
 ```
 
+## Usage with Buildozer
+
+For now we cannot specify dependencies in the `bulldozer.spec` specification file in the `garden_requirements` 
+(for example, like `components_requirements`) parameter. Instead, you must navigate to the root directory of your project,
+where the bulldozer.spec file is located, and issue the command:
+
+```bash
+pip install kivymd-components
+components install --app sweetalert
+```
+
+The component package will be installed locally in your project. Remember to import a package of components as follows:
+
+```python
+from kivymd.components.sweetalert import SweetAlert
+```
+
 ### Dependencies
 
 - [Kivy](https://github.com/kivy/kivy) >= 1.10.1 ([Installation](https://kivy.org/doc/stable/gettingstarted/installation.html))
