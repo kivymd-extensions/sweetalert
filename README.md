@@ -5,8 +5,7 @@
 ### Beautiful, responsive, customizable
 ### and accessible popup replacement.
 
-### See SweetAlert
-[documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
+See SweetAlert [documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
 
 
 ### Usage
