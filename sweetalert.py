@@ -327,6 +327,8 @@ class SweetAlert(MDDialog):
                         button.bind(on_release=lambda x=button: self.window_control_callback(x))
                     button_box.add_widget(button)
 
+        Window.bind(on_resize=lambda *args: self.dismiss())
+
     def fire(
         self,
         title="",
