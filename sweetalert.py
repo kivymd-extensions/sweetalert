@@ -465,7 +465,7 @@ class SweetAlert(MDDialog):
 
         .. code-block:: python
 
-            SweetAlert().fire('That thing is still around?', type='question')
+            SweetAlert().fire('That thing is still around?', type='success')
 
         .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-success.png
             :align: center
