@@ -83,6 +83,8 @@ from kivymd.components.sweetalert import SweetAlert
 ### Run demo
 
 ```batch
+pip install kivymd-components
+components install sweetalert
 git clone git@github.com:kivymd-components/sweetalert.git
 cd sweetalert/demo
 python main.py
