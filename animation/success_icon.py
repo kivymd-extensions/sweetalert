@@ -40,7 +40,7 @@ Builder.load_string(
             Color:
                 rgba: 0, 1, 0, 1
             SmoothLine:
-                circle: self.center_x, self.center_y, self.width/2-dp(5), root.angle_start, root.angle_end
+                circle: self.center_x, self.center_y, self.width / 2 - dp(5), root.angle_start, root.angle_end
                 width: dp(2.25)
                 cap: "square"
             SmoothLine:
