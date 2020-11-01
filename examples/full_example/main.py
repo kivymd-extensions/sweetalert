@@ -20,7 +20,7 @@ KV = """
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 #:import Clipboard kivy.core.clipboard.Clipboard
 #:import PythonLexer pygments.lexers.python.PythonLexer
-#:import SweetAlert kivymd.components.sweetalert.SweetAlert
+#:import SweetAlert kivymd_extensions.sweetalert.SweetAlert
 #:import toast kivymd.toast.toast
 
 <ItemPreview>
