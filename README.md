@@ -2,11 +2,23 @@
 
 <img align="left" width="128" src="https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweetalert-logo.png"/>
 
-### Beautiful, responsive, customizable
-### and accessible popup replacement.
+Beautiful, responsive, customizable and accessible popup replacement.
 
-See SweetAlert [documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html)
+## Installation
 
+```bash
+pip install kivymd_extensions.sweetalert
+```
+
+### Dependencies:
+
+- [KivyMD](https://github.com/kivymd/KivyMD) >= 0.104.2 (currently master branch)
+- [Kivy](https://github.com/kivy/kivy) >= 1.10.1 ([Installation](https://kivy.org/doc/stable/gettingstarted/installation.html))
+- [Python 3.6+](https://www.python.org/)
+
+## Documentation
+
+See SweetAlert [documentation](https://raw.githack.com/HeaTTheatR/KivyMD-data/master/sweetalert-doc/unincluded/sweetalert/sweetalert/index.html).
 
 ### Usage
 
@@ -16,7 +28,7 @@ from kivy.lang import Builder
 from kivymd.app import MDApp
 
 KV = """
-#:import SweetAlert kivymd.components.sweetalert.SweetAlert
+#:import SweetAlert kivymd_extensions.sweetalert.SweetAlert
 
 
 MDScreen:
@@ -29,12 +41,13 @@ MDScreen:
 """
 
 
-class Test(MDApp):
+class MainApp(MDApp):
     def build(self):
         return Builder.load_string(KV)
 
 
-Test().run()
+if __name__ == "__main__":
+    MainApp().run()
 ```
 
 <p align="center">
@@ -43,50 +56,12 @@ Test().run()
   </a>
 </p>
 
-### Installation
+## Examples
 
 ```bash
-pip install kivymd-components
-componemts install sweetalert
-```
-
-## Usage with Buildozer
-
-For now we cannot specify dependencies in the `bulldozer.spec` specification file in the `garden_requirements` 
-(for example, like `components_requirements`) parameter. Instead, you must navigate to the root directory of your project,
-where the `bulldozer.spec` file is located, and issue the command:
-
-```bash
-pip install kivymd-components
-components install --app sweetalert
-```
-
-and
-
-```bash
-buildozer android release
-```
-
-The component package will be installed locally in your project. Remember to import a package of components as follows:
-
-```python
-from kivymd.components.sweetalert import SweetAlert
-```
-
-### Dependencies
-
-- [Kivy](https://github.com/kivy/kivy) >= 1.10.1 ([Installation](https://kivy.org/doc/stable/gettingstarted/installation.html))
-- [KivyMD](https://github.com/kivymd/KivyMD) >= 0.104.2 (`pip install https://github.com/kivymd/KivyMD/archive/master.zip
-`)
-- [Python 3.6+](https://www.python.org/) _(Python 2 not supported)_
-
-### Run demo
-
-```batch
-pip install kivymd-components
-components install sweetalert
-git clone git@github.com:kivymd-components/sweetalert.git
-cd sweetalert/demo
+git clone https://github.com/kivymd-extensions/sweetalert.git
+cd sweetalert
+cd examples/full_example
 python main.py
 ```
 
@@ -100,5 +75,5 @@ python main.py
 
 If you need assistance or you have a question, you can ask for help on our mailing list:
 
-- **Discord server:** https://discord.gg/fS7yTeq
+- **Discord server:** https://discord.gg/wu3qBST
 - _Email:_ kivydevelopment@gmail.com

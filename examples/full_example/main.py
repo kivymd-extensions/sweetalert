@@ -65,7 +65,7 @@ class ItemPreview(BoxLayout):
     path_to_preview_image = StringProperty()
 
 
-class Example(MDApp):
+class MainApp(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Green"
         self.theme_cls.theme_style = "Dark"
@@ -93,4 +93,5 @@ class Example(MDApp):
             )
 
 
-Example().run()
+if __name__ == "__main__":
+    MainApp().run()

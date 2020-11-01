@@ -61,16 +61,7 @@ from kivymd.uix.spinner import MDSpinner
 from kivymd.uix.textfield import MDTextFieldRect
 from kivymd.utils.fitimage import FitImage
 
-try:
-    from .animation.failure_icon import FailureAnimation
-    from .animation.others_icon import OthersAnimation
-    from .animation.success_icon import SuccessAnimation
-except ImportError:
-    from animation.failure_icon import FailureAnimation
-    from animation.others_icon import OthersAnimation
-    from animation.success_icon import SuccessAnimation
-
-__version__ = "0.1.2"
+from kivymd_extensions.sweetalert.animation import FailureAnimation, OthersAnimation, SuccessAnimation
 
 Builder.load_string(
     """
