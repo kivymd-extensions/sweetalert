@@ -12,7 +12,7 @@ Usage
     from kivymd.app import MDApp
 
     KV = '''
-    #:import SweetAlert kivymd.components.sweetalert.SweetAlert
+    #:import SweetAlert kivymd_extensions.sweetalert.SweetAlert
 
 
     MDScreen:
@@ -348,7 +348,7 @@ class SweetAlert(MDDialog):
 
         .. code-block:: python
 
-            SweetAlert().fire("Title", "Text)
+            SweetAlert().fire("Title", "Text")
 
         .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-title-text.png
             :align: center
@@ -357,7 +357,7 @@ class SweetAlert(MDDialog):
 
         .. code-block:: python
 
-            SweetAlert().fire(text="Text)
+            SweetAlert().fire(text="Text")
 
         .. image:: https://github.com/HeaTTheatR/KivyMD-data/raw/master/gallery/sweet-alert-text.png
             :align: center
@@ -411,7 +411,7 @@ class SweetAlert(MDDialog):
             from kivymd.app import MDApp
             from kivymd.uix.button import MDRaisedButton, MDFlatButton
 
-            from kivymd.components.sweetalert import SweetAlert
+            from kivymd_extensions.sweetalert import SweetAlert
 
             KV = '''
             MDScreen:
