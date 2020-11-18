@@ -65,7 +65,7 @@ from kivymd_extensions.sweetalert.animation import FailureAnimation, OthersAnima
 
 Builder.load_string(
     """
-<CustomLabel>
+<SweetAlertLabel>
     halign: "center"
     size_hint_y: None
     height: self.texture_size[1]
@@ -579,7 +579,7 @@ class SweetAlert(MDDialog):
     def add_footer(self, footer):
         if footer:
             self.content_cls.add_widget(MDSeparator())
-            footer_text = CustomLabel(
+            footer_text = SweetAlertLabel(
                 text=footer,
                 font_style=self.font_style_footer,
                 theme_text_color="Custom",
@@ -612,7 +612,7 @@ class SweetAlert(MDDialog):
 
     def add_text(self, text):
         if text:
-            label_text = CustomLabel(
+            label_text = SweetAlertLabel(
                 text=text,
                 font_style=self.font_style_text,
                 theme_text_color="Custom",
@@ -622,7 +622,7 @@ class SweetAlert(MDDialog):
 
     def add_title(self, title):
         if title:
-            label_title = CustomLabel(text=title, font_style=self.font_style_title)
+            label_title = SweetAlertLabel(text=title, font_style=self.font_style_title)
             self.content_cls.add_widget(label_title)
 
     def add_icon(self, type, char="", color=()):
@@ -681,7 +681,7 @@ class SweetAlert(MDDialog):
                 self.center = self._window.center
 
 
-class CustomLabel(MDLabel):
+class SweetAlertLabel(MDLabel):
     """Base class for dialog labels."""
 
 
