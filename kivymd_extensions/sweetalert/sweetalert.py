@@ -269,6 +269,7 @@ class SweetAlert(MDDialog):
     request = BooleanProperty(False)
 
     _timer = 0
+    _created = False
 
     def __init__(self, **kwargs):
         self.type = "custom"
@@ -500,6 +501,10 @@ class SweetAlert(MDDialog):
             :align: center
         """
 
+        if self._created:
+            self._open(0)
+            return
+
         if not image:
             self.add_icon(type)
         else:
@@ -663,6 +668,7 @@ class SweetAlert(MDDialog):
     def _open(self, interval):
         self.ids.container.height = self.content_cls.height
         self.open()
+        self._created = True
 
     def _align_center(self, *l):
         if self._window:
