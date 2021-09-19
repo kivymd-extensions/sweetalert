@@ -9,6 +9,7 @@ package_name = "kivymd_extensions." + extension_name
 
 def get_version() -> str:
     """Get __version__ from __init__.py file."""
+
     version_file = os.path.join(
         os.path.dirname(__file__),
         "kivymd_extensions",
@@ -56,7 +57,7 @@ if __name__ == "__main__":
                 "sphinx_rtd_theme",
             ],
         },
-        install_requires=["kivymd>=0.104.1", "kivy>=1.11.1"],
+        install_requires=["kivymd>=0.104.2", "kivy>=2.0.0"],
         setup_requires=[],
         python_requires=">=3.6",
     )
