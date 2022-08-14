@@ -59,7 +59,7 @@ from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDLabel
 from kivymd.uix.spinner import MDSpinner
 from kivymd.uix.textfield import MDTextFieldRect
-from kivymd.utils.fitimage import FitImage
+from kivymd.uix.fitimage import FitImage
 
 from kivymd_extensions.sweetalert.animation import FailureAnimation, OthersAnimation, SuccessAnimation
 
