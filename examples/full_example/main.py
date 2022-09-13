@@ -76,7 +76,9 @@ class MainApp(MDApp):
         return Builder.load_string(KV)
 
     def on_start(self):
-        data = ast.literal_eval(open(f"{self.directory}/example_data.json").read())
+        data = ast.literal_eval(
+            open(f"{self.directory}/example_data.json").read()
+        )
         for i in range(len(data)):
             if i == 8 or i == 9:
                 height = "560dp"
