@@ -44,7 +44,8 @@ from kivy.properties import (
     OptionProperty,
     NumericProperty,
     ListProperty,
-    BooleanProperty, ObjectProperty,
+    BooleanProperty,
+    ObjectProperty,
 )
 from kivy.uix.relativelayout import RelativeLayout
 from kivy.uix.widget import Widget
@@ -59,9 +60,13 @@ from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDLabel
 from kivymd.uix.spinner import MDSpinner
 from kivymd.uix.textfield import MDTextFieldRect
-from kivymd.utils.fitimage import FitImage
+from kivymd.uix.fitimage import FitImage
 
-from kivymd_extensions.sweetalert.animation import FailureAnimation, OthersAnimation, SuccessAnimation
+from kivymd_extensions.sweetalert.animation import (
+    FailureAnimation,
+    OthersAnimation,
+    SuccessAnimation,
+)
 
 Builder.load_string(
     """
@@ -196,7 +201,13 @@ class SweetAlert(MDDialog):
 
     position = OptionProperty(
         "center",
-        options=("center", "top-left", "top-right", "bottom-left", "bottom-right"),
+        options=(
+            "center",
+            "top-left",
+            "top-right",
+            "bottom-left",
+            "bottom-right",
+        ),
     )
     """
     Dialog position. Available options are: `'center'`, `'top-left'`, `'top-right'`,
@@ -216,7 +227,9 @@ class SweetAlert(MDDialog):
     and defaults to `'center'`.
     """
 
-    window_control_buttons = OptionProperty(None, options=["close", "mac-style"], allownone=True)
+    window_control_buttons = OptionProperty(
+        None, options=["close", "mac-style"], allownone=True
+    )
     """
     Type of buttons of window header.
 
@@ -273,10 +286,14 @@ class SweetAlert(MDDialog):
 
     def __init__(self, **kwargs):
         self.type = "custom"
+        self.shadow_radius = 6
+        self.elevation = 1
+
         if hasattr(self, "overlay_color"):
             self.overlay_color = (0, 0, 0, 0)
         else:
             self.background_color = (0, 0, 0, 0)
+
         # A box in which text, buttons and icons will be placed of window.
         self.content_cls = MDBoxLayout(
             adaptive_height=True,
@@ -286,8 +303,12 @@ class SweetAlert(MDDialog):
         )
         self.opacity = 0
         self.bind(
-            on_open={"pulse": self.anim_open_dialog_pulse}.get(self.animation_type),
-            on_dismiss={"pulse": self.anim_close_dialog_pulse}.get(self.animation_type),
+            on_open={"pulse": self.anim_open_dialog_pulse}.get(
+                self.animation_type
+            ),
+            on_dismiss={"pulse": self.anim_close_dialog_pulse}.get(
+                self.animation_type
+            ),
         )
         self._scale_x = 0
         self._scale_y = 0
@@ -316,7 +337,11 @@ class SweetAlert(MDDialog):
                         x=data[color],
                     )
                     if self.window_control_callback:
-                        button.bind(on_release=lambda x=button: self.window_control_callback(x))
+                        button.bind(
+                            on_release=lambda x=button: self.window_control_callback(
+                                x
+                            )
+                        )
                     button_box.add_widget(button)
 
         Window.bind(on_resize=lambda *args: self.dismiss())
@@ -601,10 +626,14 @@ class SweetAlert(MDDialog):
                 on_release=lambda x: self.dismiss(),
             )
             button.md_bg_color = (
-                self.color_button if self.color_button else self.theme_cls.primary_color
+                self.color_button
+                if self.color_button
+                else self.theme_cls.primary_color
             )
             button.text_color = (
-                self.text_color_button if self.text_color_button else (0, 0, 0, 1)
+                self.text_color_button
+                if self.text_color_button
+                else (0, 0, 0, 1)
             )
             self.content_cls.add_widget(button)
         else:
@@ -627,7 +656,9 @@ class SweetAlert(MDDialog):
 
     def add_title(self, title):
         if title:
-            label_title = SweetAlertLabel(text=title, font_style=self.font_style_title)
+            label_title = SweetAlertLabel(
+                text=title, font_style=self.font_style_title
+            )
             self.content_cls.add_widget(label_title)
 
     def add_icon(self, type, char="", color=()):
@@ -648,14 +679,22 @@ class SweetAlert(MDDialog):
                 char = "!"
                 color = get_color_from_hex("#edb481")
             if char and color:
-                self.content_cls.add_widget(OthersAnimation(char=char, color=color))
+                self.content_cls.add_widget(
+                    OthersAnimation(char=char, color=color)
+                )
         if type:
             self.content_cls.add_widget(Widget(size_hint_y=None, height="48dp"))
         else:
             self.content_cls.padding = ("24dp", "36dp", "24dp", "24dp")
 
     def anim_open_dialog_pulse(self, *args):
-        anim = Animation(opacity=1, _scale_x=1, _scale_y=1, t="out_bounce", d=0.6)
+        def set_elevation(*args):
+            Animation(elevation=1, t="out_bounce", d=0.01).start(self)
+
+        anim = Animation(
+            opacity=1, _scale_x=1, _scale_y=1, t="out_bounce", d=0.6
+        )
+        anim.bind(on_complete=set_elevation)
         anim.start(self)
         # Starts the animation of the "failure" and "success" icons.
         for widget in self.content_cls.children:
@@ -663,7 +702,10 @@ class SweetAlert(MDDialog):
                 widget.play()
 
     def anim_close_dialog_pulse(self, *args):
-        Animation(opacity=0, _scale_x=0, _scale_y=0, t="out_quad", d=0.6).start(self)
+        self.elevation = 0
+        Animation(opacity=0, _scale_x=0, _scale_y=0, t="out_quad", d=0.6).start(
+            self
+        )
 
     def _open(self, interval):
         self.ids.container.height = self.content_cls.height
