@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath("_extensions"))
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath("."))))
 
 import autoapi_sweetalert  # NOQA. from _extensions
-from sweetalert import __version__ # NOQA
+from sweetalert import __version__  # NOQA
 
 # Project information
 project = "Sweet Alert"
@@ -47,7 +47,11 @@ extensions = [
 ]
 
 # AutoAPI configuration
-autoapi_dirs = ["../../../sweetalert"] if os.path.exists(realpath("../../../sweetalert")) else ["../../../../../sweetalert"]
+autoapi_dirs = (
+    ["../../../sweetalert"]
+    if os.path.exists(realpath("../../../sweetalert"))
+    else ["../../../../../sweetalert"]
+)
 autoapi_template_dir = os.path.abspath("_templates")
 autoapi_ignore = []
 autoapi_type = "python"
