@@ -79,4 +79,4 @@ python main.py
 If you need assistance or you have a question, you can ask for help on our mailing list:
 
 - **Discord server:** https://discord.gg/wu3qBST
-- _Email:_ kivydevelopment@gmail.com
+- _Email:_ KivyMD-library@yandex.com.
